@@ -62,30 +62,3 @@ def ext_gcd(a, b):
             # оба нечётные
             x, y, g = ext_gcd(a-b, b)
             return x, y-x, g
-    
-    
-
-
-
-
-print("nummber alogoritm")
-print("1 - evklid")
-print("2 - bin evklid")
-print("3 - dop")
-vibor = int(input())
-
-if vibor == 1:
-    a=int(input("num a:"))
-    b=int(input("num b:"))
-    evklid_algoritm(a, b)
-elif vibor == 2:
-    a = int(input("num a:"))
-    b = int(input("num b:"))
-    evlkid_bin_algoritm(a, b)
-elif vibor == 3:
-    a = int(input("num a:"))
-    b = int(input("num b:"))
-    x,y,g=ext_gcd(a,b)
-    print(f"({x})*{a} + ({y})*{b} = {g}")
-else:
-    print("err")

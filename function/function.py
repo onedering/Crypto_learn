@@ -1,4 +1,4 @@
-
+п»ї
 def evklid_algoritm(a, b):
     while b != 0:
         c = a%b
@@ -43,22 +43,49 @@ def ext_gcd(a, b):
         if a == 0: return 1, 1, b
         if b == 0: return 1, 1, a
         if not a&1 | b&1:
-            # оба чётные - x и y не трогаем, gcd удваеваем
+            # РѕР±Р° С‡С‘С‚РЅС‹Рµ - x Рё y РЅРµ С‚СЂРѕРіР°РµРј, gcd СѓРґРІР°РµРІР°РµРј
             x, y, g = ext_gcd(a>>1, b>>1)
             return x, y, g<<1
         elif not a&1:
-            # a - чётное, b - нечётное
+            # a - С‡С‘С‚РЅРѕРµ, b - РЅРµС‡С‘С‚РЅРѕРµ
             x, y, g = ext_gcd(a>>1, b)
             return (x-b>>1, y+(a>>1), g) if x&1 else (x>>1, y, g)
         elif not b&1:
-            # a - нечётное, b - чётное
+            # a - РЅРµС‡С‘С‚РЅРѕРµ, b - С‡С‘С‚РЅРѕРµ
             x, y, g = ext_gcd(a, b>>1)
             return (x+(b>>1), y-a>>1, g) if y&1 else (x, y>>1, g)
         elif b > a:
-            # оба нечётные
+            # РѕР±Р° РЅРµС‡С‘С‚РЅС‹Рµ
             x, y, g = ext_gcd(a, b-a)
             return x-y, y, g
         else:
-            # оба нечётные
+            # РѕР±Р° РЅРµС‡С‘С‚РЅС‹Рµ
             x, y, g = ext_gcd(a-b, b)
             return x, y-x, g
+
+def brute_force_decomposition(num):
+    print("РЅР°С…РѕРґРёС‚ С‚РѕР»СЊРєРѕ РѕРґРЅРѕ РїСЂРѕС‚СЃРѕРµ С‡РёСЃР»Рѕ")
+    k=1;x=0;q=0;w=0;e=0;g = num
+    while k == 1 :
+        if num%2 == 0:
+            x+=1
+            num= num//2
+        elif num%3== 0:
+            q+=1
+            num= num//3
+        elif num%5== 0:
+            w+=1
+            num= num//5
+        elif num%7== 0:
+            e+=1
+            num= num//7
+        else:
+            print(f"(2^{x})*(3^{q})*(5^{w})*(7^{e})*{num} = {g}")
+            k=0
+        
+    return num
+def fermats_factorization_method(num):
+
+
+    print(num)
+    return num
